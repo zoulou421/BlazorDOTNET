@@ -1,4 +1,5 @@
-﻿@page "/counter"
+﻿@page "/counter/{initialCount}"
+@page "/counter2"
 @rendermode InteractiveServer
 
 <PageTitle>Counter</PageTitle>
@@ -19,12 +20,15 @@
       <li>clicked!</li>
     }
 </ul>
-
+<p>InitialCount=@InitialCount</p>
 @code {
     private int currentCount = 0;
 
     [Parameter]
     public int IncrementCounter { get; set; } = 1;
+
+    [Parameter]
+    public string InitialCount{ get;set;}
 
     private void IncrementCount()
     {
